@@ -59,6 +59,9 @@ export default function EmployeePage() {
             </div>
             <div style={{ fontSize: 11, color: '#777' }}>{session?.user?.name}</div>
           </div>
+          <a href="/catalog" className="btn btn-secondary" style={{ padding: '7px 12px', fontSize: 12 }}>
+  🛍️ Catalogue
+</a>
           <button className="btn btn-secondary" style={{ padding: '7px 12px', fontSize: 12 }} onClick={() => signOut({ callbackUrl: '/login' })}>
             Déconnexion
           </button>
