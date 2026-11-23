@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(EMPLOYEE)
+  createdAt DateTime @default(now())
+
+  tickets          Ticket[]          @relation("CreatedBy")
+  pushSubscriptions PushSubscription[]
+}
+
+model Ticket {
+  id          String       @id @default(cuid())
+  clientName  String
+  fbLink      String
+  urgency     Urgency      @default(NORMAL)
+  note        String?
+  status      TicketStatus @default(PENDING)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  createdById String
+  createdBy   User   @relation("CreatedBy", fields: [createdById], references: [id])
+}
+
+model PushSubscription {
+  id       String @id @default(cuid())
+  endpoint String @unique
+  p256dh   String
+  auth     String
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  name      String
+  price     Float
+  colors    String[]
+  sizes     String[]
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  EMPLOYEE
+}
+
+enum Urgency {
+  NORMAL
+  URGENT
+}
+
+enum TicketStatus {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
