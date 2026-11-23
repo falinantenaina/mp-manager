@@ -59,13 +59,11 @@ export default function EmployeePage() {
             </div>
             <div style={{ fontSize: 11, color: '#777' }}>{session?.user?.name}</div>
           </div>
-          <a href="/catalog" className="btn btn-secondary" style={{ padding: '7px 12px', fontSize: 12 }}>
-  🛍️ Catalogue
-</a>
-          <button className="btn btn-secondary" style={{ padding: '7px 12px', fontSize: 12 }} onClick={() => signOut({ callbackUrl: '/login' })}>
-            Déconnexion
-          </button>
         </div>
+        <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+  <a href="/catalog" className="btn btn-secondary" style={{ padding: '7px 10px', fontSize: 11 }}>🛍️</a>
+  <button className="btn btn-secondary" style={{ padding: '7px 10px', fontSize: 11 }} onClick={() => signOut({ callbackUrl: '/login' })}>Déco</button>
+</div>
       </header>
 
       <div style={{ maxWidth: 480, margin: '0 auto', padding: '20px 16px 80px' }}>
