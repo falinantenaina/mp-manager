@@ -1,15 +1,14 @@
 {
-  "name": "FB MP Manager",
-  "short_name": "FB MP",
-  "description": "Gestion des messages Facebook pour votre équipe",
+  "name": "Mi Chic manager",
+  "short_name": "Mi Chic manager",
+  "description": "Gestion des messages Mi Chic",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f0f2f5",
-  "theme_color": "#1877f2",
+  "background_color": "#111111",
+  "theme_color": "#D40014",
   "orientation": "portrait",
   "icons": [
-    { "src": "/icons/icon-96.png",  "sizes": "96x96",   "type": "image/png" },
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable any" }
+    { "src": "/logo.jpg", "sizes": "192x192", "type": "image/jpeg" },
+    { "src": "/logo.jpg", "sizes": "512x512", "type": "image/jpeg" }
   ]
 }
